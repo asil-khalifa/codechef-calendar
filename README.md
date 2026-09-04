@@ -88,9 +88,17 @@ the calendar just quietly stops filling in. So:
   duplicate names (START257 briefly shipped as "Starters 255"), which would
   otherwise collapse two contests into one.
 
-One caveat I can't fully engineer away: GitHub disables scheduled workflows
-after 60 days without repository activity. If this repo ever goes quiet, that
-is the first thing to check.
+- **Two independent publishers.** GitHub's scheduled workflows are best-effort:
+  on the first day this ran, two consecutive hourly slots were simply skipped.
+  So a Raspberry Pi publishes on its own cron (`publish-feeds.sh`, hourly at
+  `:42`) and the Actions workflow (`:17`) is the backup. Either alone keeps the
+  feeds current; both would have to fail to make them stale. They race
+  occasionally, which is expected — each rebases and retries.
+
+Regular commits from the Pi also keep the repository active, which sidesteps
+GitHub's rule that disables scheduled workflows after 60 days of inactivity.
+That rule is the single likeliest way a project like this dies quietly, and it
+is worth checking first if the feeds ever stop moving.
 
 ## Notes
 
