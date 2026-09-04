@@ -46,12 +46,14 @@ fi
 # calendar must not stop us publishing our own.
 ./venv/bin/python check_feeds.py --out docs >>"$LOG" 2>&1
 
-if git diff --quiet -- docs; then
+# Stage first: `git diff` ignores untracked files, so a newly added file in
+# docs/ would otherwise look like "no change" and never get published.
+git add docs
+if git diff --cached --quiet -- docs; then
     log "no change"
     exit 0
 fi
 
-git add docs
 git commit -q -m "Update contest feeds" 2>>"$LOG"
 
 if git push -q origin main 2>>"$LOG"; then

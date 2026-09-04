@@ -49,11 +49,13 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- docs; then
+          # Stage first -- git diff ignores untracked files, so a new file in
+          # docs/ would look like "no change" and never be published.
+          git add docs
+          if git diff --cached --quiet -- docs; then
             echo "No changes to publish."
             exit 0
           fi
-          git add docs
           git commit -m "Update contest feeds"
           # The Raspberry Pi publishes on the same schedule, so a push here can
           # lose a race. Rebase onto whatever it pushed and retry.
