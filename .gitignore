@@ -12,3 +12,5 @@ __pycache__/
 *.pyc
 sync.log
 sync.log.*
+publish.log
+publish.log.*

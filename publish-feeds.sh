@@ -56,9 +56,18 @@ fi
 
 git commit -q -m "Update contest feeds" 2>>"$LOG"
 
-if git push -q origin main 2>>"$LOG"; then
-    log "published: $(git log -1 --format=%h)"
-else
-    log "ERROR: push failed; commit is local and will retry next run"
-    exit 1
-fi
+# The Actions run publishes on the same schedule, so losing a push race is
+# normal rather than exceptional. Rebase onto whatever it pushed and retry
+# instead of leaving the calendar an hour stale.
+for attempt in 1 2 3; do
+    if git pull --rebase -q origin main 2>>"$LOG" && git push -q origin main 2>>"$LOG"; then
+        log "published: $(git log -1 --format=%h)"
+        exit 0
+    fi
+    git rebase --abort 2>/dev/null
+    log "push attempt $attempt failed, retrying"
+    sleep 5
+done
+
+log "ERROR: could not push after 3 attempts; next run will reset and retry"
+exit 1
