@@ -24,8 +24,8 @@ No account, no setup — paste into Google Calendar under
 
 | Feed | URL |
 |---|---|
-| Rated contests only | `https://asil-khalifa.github.io/codechef-calendar/codechef-rated.ics` |
-| Every contest | `https://asil-khalifa.github.io/codechef-calendar/codechef-all.ics` |
+| Rated contests only | `https://asilkhalifa.com/codechef-calendar/codechef-rated.ics` |
+| Every contest | `https://asilkhalifa.com/codechef-calendar/codechef-all.ics` |
 
 *Rated* covers Starters, Cook-Off, Lunchtime, Long Challenge and anything
 marked `(Rated)`. *All* adds Placement Prep, practice and other filler.
