@@ -266,6 +266,16 @@ def main():
             print(f"status.json: {len(upcoming)} upcoming contests, written")
             changed_any = True
 
+        # Written on every run, unlike everything else here. It is deliberately
+        # kept in its own file so the hourly churn stays out of the feeds'
+        # history -- `git log -- docs/codechef-rated.ics` remains a genuine
+        # changelog of when contests actually changed.
+        (out / "checked.json").write_text(
+            json.dumps({"checked_at": datetime.now(timezone.utc)
+                        .strftime("%Y-%m-%dT%H:%M:%SZ")}, indent=2) + "\n"
+        )
+        print("checked.json: stamped")
+
     if changed_any:
         print("feeds updated")
     return 0

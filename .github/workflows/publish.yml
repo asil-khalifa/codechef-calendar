@@ -55,7 +55,17 @@ jobs:
           fi
           git add docs
           git commit -m "Update contest feeds"
-          git push
+          # The Raspberry Pi publishes on the same schedule, so a push here can
+          # lose a race. Rebase onto whatever it pushed and retry.
+          for attempt in 1 2 3; do
+            if git pull --rebase -q origin main && git push -q; then
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying"
+            sleep 5
+          done
+          echo "::error::could not push after 3 attempts"
+          exit 1
 
       # Surfaced last so the run still publishes, but a stale recommendation
       # turns the run red and GitHub emails about it. The entire point of this
