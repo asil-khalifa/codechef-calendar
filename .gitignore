@@ -1,0 +1,14 @@
+# Credentials -- never commit these.
+service-account.json
+*.pem
+*.key
+
+# Local machine config (calendar_id is personal). Ship config.example.json instead.
+config.json
+
+# Runtime
+venv/
+__pycache__/
+*.pyc
+sync.log
+sync.log.*

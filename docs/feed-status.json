@@ -1,0 +1,88 @@
+{
+  "feeds": [
+    {
+      "key": "codechef-jatin69",
+      "platform": "CodeChef",
+      "name": "Codechef Contest Calendar",
+      "maintainer": "jatin69/codechef-contest-calendar",
+      "recommended": false,
+      "note": "The most widely linked CodeChef calendar. Scraper stopped running.",
+      "state": "dead",
+      "events": 198,
+      "first_event": "20181005",
+      "last_event": "20210130",
+      "subscribe_url": "https://calendar.google.com/calendar/r?cid=7dqmfn6mvreiqb26jdn5ruk5jk%40group.calendar.google.com",
+      "ics_url": "https://calendar.google.com/calendar/ical/7dqmfn6mvreiqb26jdn5ruk5jk%40group.calendar.google.com/public/basic.ics"
+    },
+    {
+      "key": "codechef-learning",
+      "platform": "CodeChef",
+      "name": "Daily Learning By CodeChef",
+      "maintainer": "CodeChef",
+      "recommended": false,
+      "note": "Never had any events.",
+      "state": "empty",
+      "events": 0,
+      "first_event": null,
+      "last_event": null,
+      "subscribe_url": "https://calendar.google.com/calendar/r?cid=c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com",
+      "ics_url": "https://calendar.google.com/calendar/ical/c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com/public/basic.ics"
+    },
+    {
+      "key": "codechef-official",
+      "platform": "CodeChef",
+      "name": "CodeChef Events",
+      "maintainer": "CodeChef",
+      "recommended": false,
+      "note": "CodeChef's own calendar.",
+      "state": "dead",
+      "events": 702,
+      "first_event": "19700101",
+      "last_event": "20251231",
+      "subscribe_url": "https://calendar.google.com/calendar/r?cid=codechef.com_3ilksfmv45aqr3at9ckm95td5g%40group.calendar.google.com",
+      "ics_url": "https://calendar.google.com/calendar/ical/codechef.com_3ilksfmv45aqr3at9ckm95td5g%40group.calendar.google.com/public/basic.ics"
+    },
+    {
+      "key": "codechef-youtube",
+      "platform": "CodeChef",
+      "name": "CodeChef YouTube Events",
+      "maintainer": "CodeChef",
+      "recommended": false,
+      "note": "Streams and editorial sessions.",
+      "state": "dead",
+      "events": 116,
+      "first_event": "19700101",
+      "last_event": "20211205",
+      "subscribe_url": "https://calendar.google.com/calendar/r?cid=c_qagkahsh11os6grsr12qat0gbo%40group.calendar.google.com",
+      "ics_url": "https://calendar.google.com/calendar/ical/c_qagkahsh11os6grsr12qat0gbo%40group.calendar.google.com/public/basic.ics"
+    },
+    {
+      "key": "codeforces",
+      "platform": "Codeforces",
+      "name": "codeforces.com",
+      "maintainer": "clist.by",
+      "recommended": true,
+      "note": "Community-run via clist.by. Not affiliated with Codeforces.",
+      "state": "live",
+      "events": 1964,
+      "first_event": "20120316",
+      "last_event": "20261017",
+      "subscribe_url": "https://calendar.google.com/calendar/r?cid=br1o1n70iqgrrbc875vcehacjg%40group.calendar.google.com",
+      "ics_url": "https://calendar.google.com/calendar/ical/br1o1n70iqgrrbc875vcehacjg%40group.calendar.google.com/public/basic.ics"
+    },
+    {
+      "key": "leetcode",
+      "platform": "LeetCode",
+      "name": "LeetCode Contests",
+      "maintainer": "community",
+      "recommended": true,
+      "note": "Community-maintained import calendar. Not affiliated with LeetCode. LeetCode only schedules about two weeks ahead, so this feed is normally short.",
+      "state": "live",
+      "events": 10,
+      "first_event": "20260801",
+      "last_event": "20260912",
+      "subscribe_url": "https://calendar.google.com/calendar/r?cid=tuppslu7fl1gbkcgsuohodopfle7euv4%40import.calendar.google.com",
+      "ics_url": "https://calendar.google.com/calendar/ical/tuppslu7fl1gbkcgsuohodopfle7euv4%40import.calendar.google.com/public/basic.ics"
+    }
+  ]
+}

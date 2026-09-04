@@ -1,0 +1,65 @@
+{
+  "_comment": "Registry of public competitive-programming calendar feeds. check_feeds.py fetches each one anonymously and records whether it is still being updated. Feeds marked recommended=true are the ones the website tells people to subscribe to -- if one of those dies, CI fails loudly rather than leaving a stale recommendation up.",
+
+  "_comment_horizon": "min_horizon_days is how far ahead this feed normally has events. Platforms differ a lot: Codeforces announces months out, while LeetCode only ever publishes about two weeks ahead, so judging both by one threshold produces false alarms. A feed is 'stale' when its furthest future event is nearer than this.",
+
+  "feeds": [
+    {
+      "key": "codeforces",
+      "platform": "Codeforces",
+      "name": "codeforces.com",
+      "recommended": true,
+      "maintainer": "clist.by",
+      "google_calendar_id": "br1o1n70iqgrrbc875vcehacjg@group.calendar.google.com",
+      "min_horizon_days": 10,
+      "note": "Community-run via clist.by. Not affiliated with Codeforces."
+    },
+    {
+      "key": "leetcode",
+      "platform": "LeetCode",
+      "name": "LeetCode Contests",
+      "recommended": true,
+      "maintainer": "community",
+      "google_calendar_id": "tuppslu7fl1gbkcgsuohodopfle7euv4@import.calendar.google.com",
+      "min_horizon_days": 5,
+      "note": "Community-maintained import calendar. Not affiliated with LeetCode. LeetCode only schedules about two weeks ahead, so this feed is normally short."
+    },
+
+    {
+      "key": "codechef-jatin69",
+      "platform": "CodeChef",
+      "name": "Codechef Contest Calendar",
+      "recommended": false,
+      "maintainer": "jatin69/codechef-contest-calendar",
+      "google_calendar_id": "7dqmfn6mvreiqb26jdn5ruk5jk@group.calendar.google.com",
+      "note": "The most widely linked CodeChef calendar. Scraper stopped running."
+    },
+    {
+      "key": "codechef-official",
+      "platform": "CodeChef",
+      "name": "CodeChef Events",
+      "recommended": false,
+      "maintainer": "CodeChef",
+      "google_calendar_id": "codechef.com_3ilksfmv45aqr3at9ckm95td5g@group.calendar.google.com",
+      "note": "CodeChef's own calendar."
+    },
+    {
+      "key": "codechef-youtube",
+      "platform": "CodeChef",
+      "name": "CodeChef YouTube Events",
+      "recommended": false,
+      "maintainer": "CodeChef",
+      "google_calendar_id": "c_qagkahsh11os6grsr12qat0gbo@group.calendar.google.com",
+      "note": "Streams and editorial sessions."
+    },
+    {
+      "key": "codechef-learning",
+      "platform": "CodeChef",
+      "name": "Daily Learning By CodeChef",
+      "recommended": false,
+      "maintainer": "CodeChef",
+      "google_calendar_id": "c_llj9mtgu3mq6mhd3ukgltbiv7s@group.calendar.google.com",
+      "note": "Never had any events."
+    }
+  ]
+}

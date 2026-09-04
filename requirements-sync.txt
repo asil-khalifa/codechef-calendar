@@ -1,0 +1,5 @@
+# Only needed for sync.py -- pushing contests into your own Google Calendar.
+# The public .ics feeds (make_ics.py) need nothing beyond requirements.txt.
+-r requirements.txt
+google-api-python-client>=2.100
+google-auth>=2.23

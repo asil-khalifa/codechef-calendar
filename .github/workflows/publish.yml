@@ -1,0 +1,67 @@
+name: Publish contest feeds
+
+on:
+  schedule:
+    # Hourly. GitHub's scheduler is best-effort and can run late under load,
+    # which is fine -- contests are announced days ahead, not minutes.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "make_ics.py"
+      - "check_feeds.py"
+      - "feeds.json"
+      - ".github/workflows/publish.yml"
+
+# Never let two runs race to commit the same files.
+concurrency:
+  group: publish-feeds
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      # Generate first, publish second, and only then judge third-party feeds.
+      # A dead Codeforces or LeetCode calendar must not block publishing our
+      # own CodeChef feeds.
+      - name: Generate feeds
+        run: python make_ics.py --out docs
+
+      - name: Check feed health
+        id: health
+        continue-on-error: true
+        run: python check_feeds.py --out docs --strict
+
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- docs; then
+            echo "No changes to publish."
+            exit 0
+          fi
+          git add docs
+          git commit -m "Update contest feeds"
+          git push
+
+      # Surfaced last so the run still publishes, but a stale recommendation
+      # turns the run red and GitHub emails about it. The entire point of this
+      # project is that dead feeds should not fail silently -- including ours.
+      - name: Fail if a recommended feed is stale
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "::error::A feed recommended on the website is stale or dead. See the health check output above and update feeds.json."
+          exit 1

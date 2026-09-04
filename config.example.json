@@ -1,0 +1,25 @@
+{
+  "_comment": "Copy to config.json and fill in calendar_id (or let `sync.py init` create the calendar and fill it in for you). config.json is gitignored because the calendar id is personal.",
+
+  "calendar_id": "",
+  "calendar_name": "CodeChef Contests",
+  "timezone": "Asia/Kolkata",
+  "share_with": "you@example.com",
+
+  "_comment_filters": "A contest is included if its name matches any include_patterns AND no deny_patterns. Deny always wins. Patterns are case-insensitive regexes. To sync everything, set include_patterns to [\".*\"] and empty deny_patterns.",
+  "include_patterns": [
+    "\\bstarters?\\b",
+    "\\bcook[- ]?off\\b",
+    "\\blunchtime\\b",
+    "\\blong challenge\\b",
+    "\\(\\s*rated\\s*\\)"
+  ],
+  "deny_patterns": [
+    "placement prep",
+    "\\bpractice\\b",
+    "\\bmock\\b"
+  ],
+
+  "_comment_reminders": "Empty list = no notifications. Example: [{\"method\": \"popup\", \"minutes\": 30}]",
+  "reminders": []
+}
