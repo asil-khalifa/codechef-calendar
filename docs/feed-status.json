@@ -79,8 +79,8 @@
       "note": "Community-maintained import calendar. Not affiliated with LeetCode. LeetCode only schedules about two weeks ahead, so this feed is normally short.",
       "state": "live",
       "events": 10,
-      "first_event": "20260809",
-      "last_event": "20260920",
+      "first_event": "20260815",
+      "last_event": "20260926",
       "subscribe_url": "https://calendar.google.com/calendar/r?cid=tuppslu7fl1gbkcgsuohodopfle7euv4%40import.calendar.google.com",
       "ics_url": "https://calendar.google.com/calendar/ical/tuppslu7fl1gbkcgsuohodopfle7euv4%40import.calendar.google.com/public/basic.ics"
     }
