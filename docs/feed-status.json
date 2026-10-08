@@ -63,7 +63,7 @@
       "maintainer": "clist.by",
       "recommended": true,
       "note": "Community-run via clist.by. Not affiliated with Codeforces.",
-      "state": "live",
+      "state": "stale",
       "events": 1975,
       "first_event": "20120316",
       "last_event": "20261017",
