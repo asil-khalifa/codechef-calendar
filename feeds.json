@@ -1,7 +1,7 @@
 {
   "_comment": "Registry of public competitive-programming calendar feeds. check_feeds.py fetches each one anonymously and records whether it is still being updated. Feeds marked recommended=true are the ones the website tells people to subscribe to -- if one of those dies, CI fails loudly rather than leaving a stale recommendation up.",
 
-  "_comment_horizon": "min_horizon_days is how far ahead this feed normally has events. Platforms differ a lot: Codeforces announces months out, while LeetCode only ever publishes about two weeks ahead, so judging both by one threshold produces false alarms. A feed is 'stale' when its furthest future event is nearer than this.",
+  "_comment_horizon": "min_horizon_days is how far ahead this feed normally has events. Platforms differ a lot: Codeforces announces months out, while LeetCode only ever publishes about two weeks ahead, so judging both by one threshold produces false alarms. A feed is 'stale' when its furthest future event is nearer than this AND none of its events has been edited within max_quiet_days (default 14) -- a short horizon on a feed that is still being edited just means the platform has not announced further ahead yet.",
 
   "feeds": [
     {

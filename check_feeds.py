@@ -35,28 +35,41 @@ SUBSCRIBE_URL = "https://calendar.google.com/calendar/r?cid={cid}"
 # _comment_horizon note there.
 DEFAULT_HORIZON_DAYS = 14
 
+# A short horizon alone is not proof of death: platforms sometimes simply have
+# nothing announced yet (Codeforces and LeetCode both dipped below their usual
+# horizon in October 2026 while their feeds were being updated normally). So a
+# short horizon only counts as stale if nobody has edited the feed recently.
+DEFAULT_MAX_QUIET_DAYS = 14
+
 DTSTART = re.compile(rb"^DTSTART[^:]*:(\d{8})", re.MULTILINE)
+LAST_MODIFIED = re.compile(rb"^LAST-MODIFIED[^:]*:(\d{8})", re.MULTILINE)
 
 
 def fetch_feed(cid):
-    """Return sorted event dates from a public Google Calendar, anonymously."""
+    """Fetch a public Google Calendar anonymously.
+
+    Returns (sorted event dates, event count, most recent edit date or None).
+    """
     url = ICAL_URL.format(cid=urllib.parse.quote(cid, safe=""))
     resp = requests.get(url, timeout=45)
     resp.raise_for_status()
 
     body = resp.content
     dates = sorted({m.decode() for m in DTSTART.findall(body)})
-    return dates, body.count(b"BEGIN:VEVENT")
+    edits = LAST_MODIFIED.findall(body)
+    last_edit = datetime.strptime(max(edits).decode(), "%Y%m%d").date() if edits else None
+    return dates, body.count(b"BEGIN:VEVENT"), last_edit
 
 
-def classify(dates, today, horizon_days):
+def classify(dates, last_edit, today, horizon_days, max_quiet_days):
     if not dates:
         return "empty", None
 
     latest = datetime.strptime(dates[-1], "%Y%m%d").date()
     if latest < today:
         return "dead", latest
-    if latest < today + timedelta(days=horizon_days):
+    recently_edited = last_edit is not None and last_edit >= today - timedelta(days=max_quiet_days)
+    if latest < today + timedelta(days=horizon_days) and not recently_edited:
         return "stale", latest
     return "live", latest
 
@@ -75,12 +88,13 @@ def main():
     for feed in registry["feeds"]:
         cid = feed["google_calendar_id"]
         horizon = feed.get("min_horizon_days", DEFAULT_HORIZON_DAYS)
+        quiet = feed.get("max_quiet_days", DEFAULT_MAX_QUIET_DAYS)
         try:
-            dates, count = fetch_feed(cid)
-            state, latest = classify(dates, today, horizon)
+            dates, count, last_edit = fetch_feed(cid)
+            state, latest = classify(dates, last_edit, today, horizon, quiet)
             error = None
         except Exception as e:
-            dates, count, state, latest = [], 0, "error", None
+            dates, count, state, latest, last_edit = [], 0, "error", None, None
             error = f"{type(e).__name__}: {e}"
 
         entry = {
@@ -103,8 +117,9 @@ def main():
 
         flag = "OK  " if state == "live" else state.upper().ljust(4)
         last = latest.isoformat() if latest else "-"
+        edited = last_edit.isoformat() if last_edit else "-"
         print(f"{flag} {feed['platform']:<11} {feed['name']:<32} "
-              f"events={count:<5} last={last}")
+              f"events={count:<5} last={last} edited={edited}")
 
         if feed["recommended"] and state != "live":
             problems.append(f"{feed['name']} is {state}")
