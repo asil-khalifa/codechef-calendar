@@ -1,9 +1,9 @@
 {
-  "upcoming_contests": 4,
+  "upcoming_contests": 3,
   "next_contest": {
-    "code": "DSAMONDAY024",
-    "name": "Monday Munch - DSA Challenge 024 (Rated)",
-    "start_iso": "2026-10-12T19:00:00+05:30"
+    "code": "START260",
+    "name": "Starters 260",
+    "start_iso": "2026-10-14T20:00:00+05:30"
   },
   "feeds": [
     "codechef-all.ics",
