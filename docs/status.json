@@ -1,9 +1,9 @@
 {
-  "upcoming_contests": 5,
+  "upcoming_contests": 4,
   "next_contest": {
-    "code": "START260",
-    "name": "Starters 260 (Rated till 5 Star)",
-    "start_iso": "2026-10-14T20:00:00+05:30"
+    "code": "PLACEPREP12",
+    "name": "Placement Prep Weekends - 12",
+    "start_iso": "2026-10-17T00:00:28+05:30"
   },
   "feeds": [
     "codechef-all.ics",
