@@ -63,12 +63,13 @@
       "maintainer": "clist.by",
       "recommended": true,
       "note": "Community-run via clist.by. Not affiliated with Codeforces.",
-      "state": "live",
-      "events": 1978,
-      "first_event": "20120316",
-      "last_event": "20261026",
+      "state": "error",
+      "events": 0,
+      "first_event": null,
+      "last_event": null,
       "subscribe_url": "https://calendar.google.com/calendar/r?cid=br1o1n70iqgrrbc875vcehacjg%40group.calendar.google.com",
-      "ics_url": "https://calendar.google.com/calendar/ical/br1o1n70iqgrrbc875vcehacjg%40group.calendar.google.com/public/basic.ics"
+      "ics_url": "https://calendar.google.com/calendar/ical/br1o1n70iqgrrbc875vcehacjg%40group.calendar.google.com/public/basic.ics",
+      "error": "ReadTimeout: HTTPSConnectionPool(host='calendar.google.com', port=443): Read timed out. (read timeout=45)"
     },
     {
       "key": "leetcode",
