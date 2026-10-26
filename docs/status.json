@@ -1,9 +1,9 @@
 {
-  "upcoming_contests": 3,
+  "upcoming_contests": 2,
   "next_contest": {
-    "code": "PLACEPREP13",
-    "name": "Placement Prep Weekends - 13",
-    "start_iso": "2026-10-24T00:00:17+05:30"
+    "code": "DSAMONDAY026",
+    "name": "Monday Munch - DSA Challenge 026 (Rated)",
+    "start_iso": "2026-10-26T19:00:00+05:30"
   },
   "feeds": [
     "codechef-all.ics",
