@@ -1,9 +1,9 @@
 {
-  "upcoming_contests": 2,
+  "upcoming_contests": 1,
   "next_contest": {
-    "code": "PLACEPREP13",
-    "name": "Placement Prep Weekends - 13",
-    "start_iso": "2026-10-24T00:00:17+05:30"
+    "code": "START262",
+    "name": "Starters 262",
+    "start_iso": "2026-10-28T20:00:00+05:30"
   },
   "feeds": [
     "codechef-all.ics",
