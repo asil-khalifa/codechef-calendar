@@ -21,12 +21,13 @@
       "maintainer": "CodeChef",
       "recommended": false,
       "note": "Never had any events.",
-      "state": "empty",
+      "state": "error",
       "events": 0,
       "first_event": null,
       "last_event": null,
       "subscribe_url": "https://calendar.google.com/calendar/r?cid=c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com",
-      "ics_url": "https://calendar.google.com/calendar/ical/c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com/public/basic.ics"
+      "ics_url": "https://calendar.google.com/calendar/ical/c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com/public/basic.ics",
+      "error": "HTTPError: 404 Client Error: Not Found for url: https://calendar.google.com/calendar/ical/c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com/public/basic.ics"
     },
     {
       "key": "codechef-official",
