@@ -21,13 +21,12 @@
       "maintainer": "CodeChef",
       "recommended": false,
       "note": "Never had any events.",
-      "state": "error",
+      "state": "empty",
       "events": 0,
       "first_event": null,
       "last_event": null,
       "subscribe_url": "https://calendar.google.com/calendar/r?cid=c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com",
-      "ics_url": "https://calendar.google.com/calendar/ical/c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com/public/basic.ics",
-      "error": "HTTPError: 404 Client Error: Not Found for url: https://calendar.google.com/calendar/ical/c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com/public/basic.ics"
+      "ics_url": "https://calendar.google.com/calendar/ical/c_llj9mtgu3mq6mhd3ukgltbiv7s%40group.calendar.google.com/public/basic.ics"
     },
     {
       "key": "codechef-official",
@@ -65,7 +64,7 @@
       "recommended": true,
       "note": "Community-run via clist.by. Not affiliated with Codeforces.",
       "state": "live",
-      "events": 1986,
+      "events": 1987,
       "first_event": "20120316",
       "last_event": "20261127",
       "subscribe_url": "https://calendar.google.com/calendar/r?cid=br1o1n70iqgrrbc875vcehacjg%40group.calendar.google.com",
