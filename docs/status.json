@@ -1,9 +1,9 @@
 {
   "upcoming_contests": 2,
   "next_contest": {
-    "code": "START264",
-    "name": "Starters 264 (Rated for 6 Star)",
-    "start_iso": "2026-11-11T20:00:00+05:30"
+    "code": "DSAMONDAY029",
+    "name": "Monday Munch - DSA Challenge 029 (Rated)",
+    "start_iso": "2026-11-16T19:00:00+05:30"
   },
   "feeds": [
     "codechef-all.ics",
