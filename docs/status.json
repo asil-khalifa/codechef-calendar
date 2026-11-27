@@ -1,9 +1,9 @@
 {
-  "upcoming_contests": 1,
+  "upcoming_contests": 5,
   "next_contest": {
-    "code": "START266",
-    "name": "Starters 266 (Rated till 5 Star)",
-    "start_iso": "2026-11-25T20:00:00+05:30"
+    "code": "START267",
+    "name": "Starters 267",
+    "start_iso": "2026-12-02T20:00:00+05:30"
   },
   "feeds": [
     "codechef-all.ics",
